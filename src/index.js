@@ -16,7 +16,7 @@ const totalReducer = (state=0, action) => {
 
 const pizzas = (state=[], action) => {
     if (action.type === 'GET_PIZZAS'){
-        return [...state, action.payload];
+        return action.payload;
     }
     return state;
 }

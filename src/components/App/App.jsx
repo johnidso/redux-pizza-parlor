@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import { HashRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 import Header from "../Header/Header";
@@ -26,12 +27,26 @@ function App() {
 
 
   return (
-    <>
-    <Header />
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-    <SelectPizza />
-    </>
+    <Router>
+      <Route path='/'>
+        <Header />
+        <SelectPizza />
+      </Route>
+      <Route path='/info'>
+
+      </Route>
+      <Route path='/checkout'>
+
+      </Route>
+      <Route path='/admin'>
+        
+      </Route>
+
+      
+        <img src='images/pizza_photo.png' />
+        <p>Pizza is great.</p>
+      
+    </Router>
   );
 }
 

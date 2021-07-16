@@ -7,9 +7,9 @@ function SelectPizza () {
     console.log(pizzas);
     return(
         <section id='pizzaList'>
-        {pizzas.map( pizza => 
-            <PizzaItem key={pizza.id} name={pizza.name} description={pizza.description} price={pizza.price} image_path={pizza.image_path} />
-        )}
+        {pizzas.map( pizza => {
+            return <PizzaItem key={pizza.id} name={pizza.name} description={pizza.description} price={pizza.price} image_path={pizza.image_path} />
+})}
         </section>
     )
 }
