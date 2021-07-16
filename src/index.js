@@ -15,16 +15,16 @@ const totalReducer = (state=0, action) => {
 }
 
 const pizzas = (state=[], action) => {
-    if (action.type === 'ADD_PIZZA'){
+    if (action.type === 'GET_PIZZAS'){
         return [...state, action.payload];
-    } else if (action.type === 'REMOVE_PIZZA') => {
-        return 
     }
+    return state;
 }
 
 let storeInstance= createStore(
     combineReducers({
         totalReducer,
+        pizzas
     }),
     applyMiddleware(logger)
 )
