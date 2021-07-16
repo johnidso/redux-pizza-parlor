@@ -2,12 +2,16 @@
 //This will get the client data which should be stored in global state
 import { useSelector } from 'react-redux';
 
-function ClientData(){
-
-    // const client_information = (store => store.client_data);
-
+function ClientData(props){
+    const customerInfo = props.customerInfo
+    console.log('data', customerInfo);
     return(
-        <p>Client Data</p>
+        <div>
+            <p>{customerInfo.customer_name}</p>
+            <p>{customerInfo.street_address}</p>
+            <p>{customerInfo.city} {customerInfo.zip}</p>
+            <p>{customerInfo.type}</p>
+        </div>
     )
 }
 

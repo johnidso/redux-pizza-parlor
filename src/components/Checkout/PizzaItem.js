@@ -3,8 +3,8 @@ function PizzaItem(props) {
     
     return (
         <tr>
-            <td>{pizza.id}</td>
             <td>{pizza.name}</td>
+            <td>{pizza.price}</td>
         </tr>
     )
 }

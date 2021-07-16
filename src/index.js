@@ -16,10 +16,12 @@ type: "Pickup"}
 
 const pizzas = [{
     id: "1",
-    name: 'peperoni'
+    name: 'peperoni',
+    price: 12.43
   },{
     id: "2",
-    name: 'sausage'
+    name: 'sausage',
+    price: 10.99
   }]
 
 const PizzaCartReducer = (state = pizzas, action) => {
@@ -35,9 +37,20 @@ const PizzaCartReducer = (state = pizzas, action) => {
     return state;
 };
 
+// Customer information reducer:
+const customerInfo = (state = customer, action) => {
+    if (action.type === 'ADD_CUSTOMER_INFO') {
+    // Create a new array which includes previous customer’s information (objects)
+         console.log(`The customer information added was ${action.payload}`);
+         return [...state, action.payload];
+     }
+     return state;
+ };
+
 const storeInstance = createStore(
     combineReducers({
         PizzaCartReducer,
+        customerInfo,
     })
 );
 

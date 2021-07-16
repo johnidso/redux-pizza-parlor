@@ -1,11 +1,8 @@
 import PizzaItem from "./PizzaItem";
 
-import { useSelector } from 'react-redux';
-
-function CartPizzas() {
-
-    const cart = useSelector(store => store.PizzaCartReducer);
-
+function CartPizzas(props) {
+    const cart = props.cart;
+    let price = 0;
     return (
         <div>
             <table>
@@ -19,11 +16,11 @@ function CartPizzas() {
                     {cart.map(pizza => (
                         <PizzaItem pizza={pizza} key = {pizza.id}/>
                     ))}
-                    
                 </tbody>
             </table>
+            {cart.map(pizza => {{ price += pizza.price }})}
+            <p>{price}</p>
         </div>
-        
     )
 }
 

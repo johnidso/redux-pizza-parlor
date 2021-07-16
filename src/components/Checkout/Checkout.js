@@ -1,4 +1,6 @@
 import {useHistory} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 import ClientData from './ClientData.js'
 import CartPizzas from './CartPizzas.js';
@@ -6,16 +8,19 @@ import CartPizzas from './CartPizzas.js';
 function Checkout() {
     // const history = useHistory();
 
-    // const handleClick = () => {
-    // history.push('/');
-    // }
+    const handleClick = () => {
+        console.log(customerInfo, cart);
+    }
+
+    const customerInfo = useSelector(store => store.customerInfo);
+    const cart = useSelector(store => store.PizzaCartReducer);
 
     return (
         <div>
-            {/* <button onClick={handleClick} >Checkout</button> */}
             <p>Step 3: Checkout</p>
-            <ClientData />
-            <CartPizzas />
+            <ClientData customerInfo={customerInfo}/>
+            <CartPizzas cart={cart}/>
+            <button onClick={handleClick} >Checkout</button>
         </div>
         
     )
