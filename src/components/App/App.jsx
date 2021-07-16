@@ -25,6 +25,15 @@ function App() {
     })
   }
 
+  const getOrders = () => {
+    axios.get('/api/order')
+    .then (response => {
+      dispatch ({type: 'GET_ORDER_LIST', payload: res.data})
+    }) .catch (error =>{
+      console.log('AXIOS get orders error', error);
+    })
+  }
+
   return (
     <Router>
       <Route path='/'>
