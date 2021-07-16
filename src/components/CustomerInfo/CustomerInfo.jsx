@@ -7,11 +7,11 @@ import './CustomerInfo.css';
 function CustomerInfo() {
 
     // Track the new customer info to add in our "local" state
-    const [newName, setNewName] = useState('');
-    const [newAddress, setNewAddress] = useState('');
-    const [newCity, setNewCity] = useState('');
-    const [newZip, setNewZip] = useState('');
-    const [pickup, setPickup] = useState('Pickup');
+    const [customer_name, setCustomer_Name] = useState('');
+    const [street_address, setStreet_Address] = useState('');
+    const [city, setCity] = useState('');
+    const [zip, setZip] = useState('');
+    const [type, setType] = useState('Pickup');
 
     // "dispatch" is how we talk to redux from react
     const dispatch = useDispatch();
@@ -23,8 +23,8 @@ function CustomerInfo() {
          // Don't reload on form submit
          event.preventDefault();
         //lets add an if function to alert the user if the didnt fill something in
-        console.log(newName, newAddress, newCity, newZip);
-        if ( !newName || !newAddress|| !newCity || !newZip ){
+
+        if ( !customer_name || !street_address || !city || !zip) {
             alert('Please fill in all customer information!');
         }
 
@@ -34,15 +34,15 @@ function CustomerInfo() {
             dispatch({
                 type: 'ADD_CUSTOMER_INFO',
                 // Pass in the customer information, that we're tracking in state
-                payload: {newName, newAddress, newCity, newZip, pickup}
+                payload: {customer_name, street_address, city, zip, type}
             });
 
             // Clear the form field
-            setNewName('');
-            setNewAddress('');
-            setNewCity('');
-            setNewZip('');
-            setPickup(true);
+            setCustomer_Name('');
+            setStreet_Address('');
+            setCity('');
+            setZip('');
+            setType(true);
 
             // direct browser to next route
             history.push('/checkout');
@@ -56,26 +56,26 @@ function CustomerInfo() {
             <input 
                 type="text" 
                 placeholder="Name"
-                value={newName}
-                onChange={event => setNewName(event.target.value)}
+                value={customer_name}
+                onChange={event => setCustomer_Name(event.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="Street Address"
-                value={newAddress}
-                onChange={event => setNewAddress(event.target.value)}
+                value={street_address}
+                onChange={event => setStreet_Address(event.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="City"
-                value={newCity}
-                onChange={event => setNewCity(event.target.value)}
+                value={city}
+                onChange={event => setCity(event.target.value)}
             />
             <input 
                 type="text" 
                 placeholder="Zip"
-                value={newZip}
-                onChange={event => setNewZip(event.target.value)}
+                value={zip}
+                onChange={event => setZip(event.target.value)}
             />
 
             {/* <label class="container">Pickup
@@ -91,7 +91,7 @@ function CustomerInfo() {
                 id="pickup" 
                 name="pickup_or_delivery"
                 checked="checked" 
-                value={pickup}
+                value={type}
                 onChange={event => setPickup('Pickup')}
                 />
                 <label htmlFor="pickup">Pickup</label><br/>
@@ -99,7 +99,7 @@ function CustomerInfo() {
                 type="radio" 
                 id="delivery" 
                 name="pickup_or_delivery" 
-                value={pickup} 
+                value={type} 
                 onChange={event => setPickup('Delivery')}
                 />
                 <label htmlFor="delivery">Delivery</label><br/>

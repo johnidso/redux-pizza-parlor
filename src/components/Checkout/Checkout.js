@@ -22,11 +22,12 @@ function Checkout() {
                 id: pizza.id,
                 quantity: "1"
             });
-            total += pizza.price;
+            total += Number(pizza.price);
         }
         //New object with the new data
         let order = {...customerInfo, pizzas: pizzas, total: total}
         uploadOrder(order);
+        console.log(order);
     }
 
     // POST route that uploads new order

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 import Checkout from '../Checkout/Checkout';
@@ -41,13 +41,16 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
     <Router>
+    <Header />
       <Route path='/'exact>
-        <Header />
+        <Link to="/pizzas">
+          <div>
+            <button >New order</button>
+          </div>
+        </Link>
       </Route>
+      
       <Route path='/pizzas'>
         <SelectPizza />
       </Route>
