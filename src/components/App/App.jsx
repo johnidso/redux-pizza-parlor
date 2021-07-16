@@ -12,6 +12,7 @@ function App() {
 
   useEffect(() => {
     fetchPizzaList();
+    getOrders();
   }, []);
 
   const fetchPizzaList = () => {
@@ -23,8 +24,6 @@ function App() {
         console.log('Error getting Pizzas', err);
     })
   }
-
-
 
   return (
     <Router>
