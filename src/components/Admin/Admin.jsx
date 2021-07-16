@@ -1,22 +1,31 @@
 import { useSelector } from 'react-redux';
 import "./Admin.css";
 import {useEffect} from 'react'
+import Header from '../Header/Header';
 
 function Admin({getOrders}) {
     useEffect(() => {
         getOrders();
       }, []);
     const pizzaOrders = useSelector(store => store.pizzaOrders);
-
+    console.log(pizzaOrders);
     return(
+        <>
+        <Header />
         <table>
             <thead>
             <tr>
                 <th>
+                    Time Order was Placed
+                </th>
+                <th>
                     Customer Name
                 </th>
                 <th>
-                    Time Order was Placed
+                    Street Address
+                </th>
+                <th>
+                    City
                 </th>
                 <th>
                     Type
@@ -43,7 +52,8 @@ function Admin({getOrders}) {
                  }
                 </tbody>
 
-        </table>   
+        </table> 
+        </>  
     )}
 
 

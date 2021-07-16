@@ -1,0 +1,13 @@
+#pizzaList {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#nextButton {
+    height: 50px;
+    width: 150px;
+    font-size: 24px;
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}

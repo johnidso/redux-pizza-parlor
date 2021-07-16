@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 
 const pizzaOrders = (state = [], action ) => {
     if (action.type ==='GET_ORDER_LIST') {
-        return action.payload;
+        return  action.payload;
     }
     return state
 }

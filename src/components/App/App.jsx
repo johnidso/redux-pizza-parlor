@@ -45,7 +45,7 @@ function App() {
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
     <Router>
-      <Route path='/'>
+      <Route path='/'exact>
         <Header />
       </Route>
       <Route path='/pizzas'>
