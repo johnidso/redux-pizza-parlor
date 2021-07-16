@@ -2,7 +2,6 @@ import PizzaItem from "./PizzaItem";
 
 function CartPizzas(props) {
     const cart = props.cart;
-    let price = 0;
     return (
         <div>
             <table>
@@ -18,8 +17,6 @@ function CartPizzas(props) {
                     ))}
                 </tbody>
             </table>
-            {cart.map(pizza => {{ price += pizza.price }})}
-            <p>{price}</p>
         </div>
     )
 }

@@ -29,7 +29,7 @@ const PizzaCartReducer = (state = pizzas, action) => {
         return [...state, action.payload];
     }
     if(action.type === 'CLEAR_CART'){
-        return state = [];
+        return action.payload;
     }
     if(action.type === 'REMOVE_PIZZA'){
         return state.filter(item => item != action.payload)

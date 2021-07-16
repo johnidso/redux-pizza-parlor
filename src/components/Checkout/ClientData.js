@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function ClientData(props){
     const customerInfo = props.customerInfo
-    console.log('data', customerInfo);
+    
     return(
         <div>
             <p>{customerInfo.customer_name}</p>
