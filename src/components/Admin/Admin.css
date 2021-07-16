@@ -1,5 +1,22 @@
-table,th,tr{
-    border: 1px solid black
-    
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-spacing: 2px;
+    background-color: lightseagreen;
+    border-radius: 5px;
 }
 
+th,tr{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    border-radius: 2px;
+}
+
+td{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 2px;
+
+}
