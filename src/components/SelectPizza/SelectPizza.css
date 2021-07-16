@@ -1,0 +1,4 @@
+#pizzaList {
+    display:flex;
+    flex-wrap: wrap;
+}

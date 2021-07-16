@@ -19,16 +19,20 @@ function PizzaItem (props) {
     }
     return(
         pizzaState ? (
-            <section>
-                <img src={props.image_source} alt={props.name} />
+            <section className="pizzaCard">
+                {/* <img src={props.image_source} alt={props.name} /> */}
                 <p>{props.name}</p>
-                <p>{props.description}</p>
-                <a>{props.price}</a>
-                <button onClick={handlePizzaAdd}>Add</button>
+                <div className="pizzaInfo">
+                    <p>{props.description}</p>
+                    <a>{props.price}</a>
+                </div>
+                <div>
+                    <button onClick={handlePizzaAdd}>Add</button>
+                </div>
             </section>
         ) : (
-            <section>
-                <img src={props.image_source} alt={props.name} />
+            <section className="pizzaCard">
+                {/* <img src={props.image_source} alt={props.name} /> */}
                 <p>{props.name}</p>
                 <p>{props.description}</p>
                 <a>{props.price}</a>

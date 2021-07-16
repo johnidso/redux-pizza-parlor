@@ -1,6 +1,7 @@
 import {useSelector} from 'react-redux';
 import PizzaItem from '../PizzaItem/PizzaItem';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import './SelectPizza.css';
 
 
 function SelectPizza () {
