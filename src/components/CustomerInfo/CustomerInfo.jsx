@@ -92,7 +92,7 @@ function CustomerInfo() {
                 name="pickup_or_delivery"
                 checked="checked" 
                 value={type}
-                onChange={event => setPickup('Pickup')}
+                onClick={event => setType('Pickup')}
                 />
                 <label htmlFor="pickup">Pickup</label><br/>
             <input 
@@ -100,7 +100,7 @@ function CustomerInfo() {
                 id="delivery" 
                 name="pickup_or_delivery" 
                 value={type} 
-                onChange={event => setPickup('Delivery')}
+                onClick={event => setType('Delivery')}
                 />
                 <label htmlFor="delivery">Delivery</label><br/>
             <button type="submit">Next</button>

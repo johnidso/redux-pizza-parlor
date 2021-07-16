@@ -25,7 +25,7 @@ const PizzaCartReducer = (state = [], action) => {
         return [...state, action.payload];
     }
     if(action.type === 'CLEAR_CART'){
-        return action.payload;
+        return state = [];
     }
     if(action.type === 'REMOVE_PIZZA'){
         return state.filter(item => item != action.payload)
@@ -40,6 +40,9 @@ const customerInfo = (state = {}, action) => {
          console.log(`The customer information added was ${action.payload}`);
          return action.payload;
      }
+     if(action.type === 'CLEAR_CLIENT_DATA'){
+        return state = [];
+    }
      return state;
  };
 

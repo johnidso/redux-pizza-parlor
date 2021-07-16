@@ -14,7 +14,8 @@ function PizzaItem (props) {
     }
     const handlePizzaRemove = event => {
         event.preventDefault();
-        dispatch({type:'REMOVE_PIZZA', payload: props.id});
+        console.log('Pizza deleted',props.pizza);
+        dispatch({type:'REMOVE_PIZZA', payload: props.pizza});
         setPizzaState(!pizzaState);
     }
     return(

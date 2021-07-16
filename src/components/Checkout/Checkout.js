@@ -10,12 +10,10 @@ function Checkout() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    //When the checkout button is clicked it will prepare an object to send it to the server
-    //and then save it on the database
-    const handleClick = () => {
-        //This gets the pizzas Id's only and save them in a object along with 
-        // the quantity which is set to 1 as a placeholder. it will also get the total price of the order
-        let pizzas = [];
+    //Reducers
+    const customerInfo = useSelector(store => store.customerInfo);
+    const cart = useSelector(store => store.PizzaCartReducer);
+    let pizzas = [];
         let total = 0;
         for (const pizza of cart) {
             pizzas.push({
@@ -24,6 +22,12 @@ function Checkout() {
             });
             total += Number(pizza.price);
         }
+    //When the checkout button is clicked it will prepare an object to send it to the server
+    //and then save it on the database
+    const handleClick = () => {
+        //This gets the pizzas Id's only and save them in a object along with 
+        // the quantity which is set to 1 as a placeholder. it will also get the total price of the order
+        
         //New object with the new data
         let order = {...customerInfo, pizzas: pizzas, total: total}
         uploadOrder(order);
@@ -46,16 +50,12 @@ function Checkout() {
       console.log('Error placing order', error);
     })
   }
-    //Reducers
-    const customerInfo = useSelector(store => store.customerInfo);
-    const cart = useSelector(store => store.PizzaCartReducer);
-
     return (
         <div>
             <p>Step 3: Checkout</p>
             <ClientData customerInfo={customerInfo}/>
             <CartPizzas cart={cart}/>
-            <p>{customerInfo.total}</p>
+            <p>Total: {total}</p>
             <button onClick={handleClick} >Checkout</button>
         </div>
     )
