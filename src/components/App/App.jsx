@@ -4,7 +4,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 import Header from "../Header/Header";
-
+import Admin from "../Admin/Admin";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 
 import SelectPizza from '../SelectPizza/SelectPizza';
