@@ -1,5 +1,6 @@
+import { useSelector } from 'react-redux';
 function Admin() {
-
+    const pizzaOrders = useSelector(store => store.pizzaOrders);
     return(
         <table>
             <thead>
@@ -16,10 +17,11 @@ function Admin() {
                 <th>
                     Total Cost
                 </th>
-                </tr>
+            </tr>
                 </thead>
+
                 <tbody>
-                    {orderList.map((pizzaOrder =>{
+                    {pizzaOrders.map(pizzaOrder =>{
                         return (
                             <tr key={pizzaOrder.Id}>
                                 <td> {pizzaOrder.time }</td>
@@ -30,11 +32,12 @@ function Admin() {
                                 <td> {pizzaOrder.total}</td>
                             </tr>
                         )
-                    })}
+                    })
+                 }
                 </tbody>
-        </table>
-    )
-}
+
+        </table>   
+    )}
 
 
 export default Admin;
