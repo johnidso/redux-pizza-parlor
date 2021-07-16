@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import './CustomerInfo.css';
 
 function CustomerInfo() {
@@ -11,8 +13,11 @@ function CustomerInfo() {
     const [newZip, setNewZip] = useState('');
     const [pickup, setPickup] = useState(true);
 
-     // "dispatch" is how we talk to redux from react
-     const dispatch = useDispatch();
+    // "dispatch" is how we talk to redux from react
+    const dispatch = useDispatch();
+
+    // link history to useHistory to be able to change the user location
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         // Don't reload on form submit
@@ -31,6 +36,10 @@ function CustomerInfo() {
         setNewCity('');
         setNewZip('');
         setPickup(true);
+
+        // direct browser to next route
+        history.push('/checkout');
+
     };
     
     return (
