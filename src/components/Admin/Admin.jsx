@@ -19,7 +19,7 @@ function Admin() {
                 </tr>
                 </thead>
                 <tbody>
-                    {orderList.map((pizzaOrder, index) =>{
+                    {orderList.map((pizzaOrder =>{
                         return (
                             <tr key={pizzaOrder.Id}>
                                 <td> {pizzaOrder.time }</td>
