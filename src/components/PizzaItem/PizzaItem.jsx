@@ -2,7 +2,7 @@ import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
 
-function PizzaItem () {
+function PizzaItem ({key}, {name}, {description}, {price}) {
     const dispatch=useDispatch();
     const [pizzaState, setPizzaState] = useState(true)
     const handlePizzaAdd = event => {
@@ -19,17 +19,17 @@ function PizzaItem () {
         pizzaState ? (
             <section>
                 {/* Image here? */}
-                <p>{pizza.name}</p>
-                <p>{pizza.description}</p>
-                <a>{pizza.price}</a>
+                <p>{name}</p>
+                <p>{description}</p>
+                <a>{price}</a>
                 <button onClick={handlePizzaAdd}>Add</button>
             </section>
         ) : (
             <section>
                 {/* Image here? */}
-                <p>{pizza.name}</p>
-                <p>{pizza.description}</p>
-                <a>{pizza.price}</a>
+                <p>{name}</p>
+                <p>{description}</p>
+                <a>{price}</a>
                 <button onClick={handlePizzaRemove}>Remove</button>
             </section>
         )
