@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Header from "../Header/Header";
-import Admin from "../Admin/Admin";
+
 
 const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function App() {
   }, [])
   //GET ORDERS REQUEST
   const getOrders = () => {
-    axios.get('/Orders')
+    axios.get ('/api/order')
     .then((response) =>{
       console.log('AXIOS GET ORDERS response:', response)
       dispatch({ type: `SET_ORDER_LIST`, payload: response.data });
@@ -30,9 +30,15 @@ function App() {
   
   return (
     <>
-    <Header />
+    <Router>
+      <Header />
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+      <Route exact path= '/admin' component={Admin}> </Route>
+    </Router>
+    
+     
+      
     </>
   );
 }
