@@ -48,10 +48,10 @@ function App() {
         <CustomerInfo />
       </Route>
       <Route path='/checkout'>
-  
+        
       </Route>
       <Route path='/admin'>
-        
+        <Admin />
       </Route>
 
       
