@@ -22,7 +22,7 @@ function PizzaItem (props) {
             <section className="pizzaCard">
                 <img src={props.image_path} alt={props.name} />
                 <div className="pizzaInfo">
-                <p>{props.name}</p>
+                    <p>{props.name}</p>
                     <p>{props.description}</p>
                     <a>{props.price}</a>
                 </div>
@@ -32,11 +32,15 @@ function PizzaItem (props) {
             </section>
         ) : (
             <section className="pizzaCard">
-                {/* <img src={props.image_source} alt={props.name} /> */}
-                <p>{props.name}</p>
-                <p>{props.description}</p>
-                <a>{props.price}</a>
-                <button onClick={handlePizzaRemove}>Remove</button>
+                <img src={props.image_path} alt={props.name} />
+                <div className="pizzaInfo">
+                    <p>{props.name}</p>
+                    <p>{props.description}</p>
+                    <a>{props.price}</a>
+                </div>
+                <div className="button">
+                    <button onClick={handlePizzaRemove}>Remove</button>
+                </div>
             </section>
         )
     )
