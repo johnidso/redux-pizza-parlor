@@ -1,17 +1,21 @@
 import {useHistory} from 'react-router-dom';
 
+import ClientData from './ClientData.js'
+import CartPizzas from './CartPizzas.js';
 
 function Checkout() {
     const history = useHistory();
 
-    const handleClick = () => {
-    history.push('/');
-    }
+    // const handleClick = () => {
+    // history.push('/');
+    // }
 
     return (
         <div>
-            <p>Linked</p>
-            <button onClick={handleClick} >Checkout</button>
+            {/* <button onClick={handleClick} >Checkout</button> */}
+            <p>Step 3: Checkout</p>
+            <ClientData />
+            <CartPizzas />
         </div>
         
     )
