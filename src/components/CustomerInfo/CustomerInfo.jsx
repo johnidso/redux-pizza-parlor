@@ -59,14 +59,19 @@ function CustomerInfo() {
                 value={newZip}
                 onChange={event => setNewZip(event.target.value)}
             />
-            <label class="container">Pickup
+
+            {/* <label class="container">Pickup
                 <input type="checkbox" checked="checked" />
                 <span class="checkmark"></span>
             </label>
             <label class="container">Delivery
                 <input type="checkbox" />
                 <span class="checkmark"></span>
-            </label>
+            </label> */}
+            <input type="radio" id="html" name="fav_language" value="HTML" />
+                <label for="html">HTML</label><br/>
+            <input type="radio" id="css" name="fav_language" value="CSS" />
+                <label for="css">CSS</label><br/>
             <button type="submit">Next</button>
         </form>
     </div>
