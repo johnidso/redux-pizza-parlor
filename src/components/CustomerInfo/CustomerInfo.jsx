@@ -20,26 +20,35 @@ function CustomerInfo() {
     const history = useHistory();
 
     const handleSubmit = (event) => {
-        // Don't reload on form submit
-        event.preventDefault();
 
-        // Tell redux that we want to add new customer information
-        dispatch({
-            type: 'ADD_CUSTOMER_INFO',
-            // Pass in the customer information, that we're tracking in state
-            payload: {newName, newAddress, newCity, newZip, pickup}
-        });
+        //lets add an if function to alert the user if the didnt fill something in
 
-        // Clear the form field
-        setNewName('');
-        setNewAddress('');
-        setNewCity('');
-        setNewZip('');
-        setPickup(true);
+        if (newName('') || newAddress('') || newCity('') || newZip('')) {
+            alert('Please fill in all customer information!');
+        }
 
-        // direct browser to next route
-        history.push('/checkout');
+        else {
 
+            // Don't reload on form submit
+            event.preventDefault();
+
+            // Tell redux that we want to add new customer information
+            dispatch({
+                type: 'ADD_CUSTOMER_INFO',
+                // Pass in the customer information, that we're tracking in state
+                payload: {newName, newAddress, newCity, newZip, pickup}
+            });
+
+            // Clear the form field
+            setNewName('');
+            setNewAddress('');
+            setNewCity('');
+            setNewZip('');
+            setPickup(true);
+
+            // direct browser to next route
+            history.push('/checkout');
+        }
     };
     
     return (
