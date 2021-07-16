@@ -14,6 +14,14 @@ const totalReducer = (state=0, action) => {
     return state
 }
 
+const pizzas = (state=[], action) => {
+    if (action.type === 'ADD_PIZZA'){
+        return [...state, action.payload];
+    } else if (action.type === 'REMOVE_PIZZA') => {
+        return 
+    }
+}
+
 let storeInstance= createStore(
     combineReducers({
         totalReducer,
