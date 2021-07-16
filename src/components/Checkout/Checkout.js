@@ -38,7 +38,7 @@ function Checkout() {
         })
         dispatch({
             type: 'CLEAR_CLIENT_DATA',
-            payload = {}
+            payload : {}
         })
         history.push('/');
     }).catch(error => {

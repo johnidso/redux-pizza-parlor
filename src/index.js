@@ -2,29 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import logger from 'redux-logger';
+import {Provider} from 'react-redux';
 
-// Redux
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
+const pizzaOrders = (state = [], action ) => {
+    if (action.type ==='GET_ORDER_LIST') {
+        return action.payload;
+    }
+    return state
+}
 
-const customer = {customer_name: "Donatello",
-street_address: "20 W 34th St",
-city: "New York",
-zip: "10001",
-total: "27.98",
-type: "Pickup"}
-
-const pizzas = [{
-    id: "1",
-    name: 'peperoni',
-    price: 12.43
-  },{
-    id: "2",
-    name: 'sausage',
-    price: 10.99
-  }]
-
-const PizzaCartReducer = (state = pizzas, action) => {
+const totalReducer = (state=0, action) => {
+    if (action.type === "UPDATE_TOTAL"){
+        state += Number(action.payload);
+        return state
+    }
+    return state
+}
+const PizzaCartReducer = (state = [], action) => {
     if(action.type === 'ADD_TO_CART'){
         return [...state, action.payload];
     }
@@ -38,24 +34,31 @@ const PizzaCartReducer = (state = pizzas, action) => {
 };
 
 // Customer information reducer:
-const customerInfo = (state = customer, action) => {
+const customerInfo = (state = {}, action) => {
     if (action.type === 'ADD_CUSTOMER_INFO') {
     // Create a new array which includes previous customer’s information (objects)
          console.log(`The customer information added was ${action.payload}`);
-         return [...state, action.payload];
+         return action.payload;
      }
      return state;
  };
 
-const storeInstance = createStore(
-    combineReducers({
-        PizzaCartReducer,
-        customerInfo,
-    })
-);
+const pizzas = (state=[], action) => {
+    if (action.type === 'GET_PIZZAS'){
+        return action.payload;
+    }
+    return state;
+}
 
-ReactDOM.render(
-<Provider store={storeInstance}>
-    <App />
-</Provider>, 
-document.getElementById('root'));
+let storeInstance= createStore(
+    combineReducers({
+        totalReducer,
+        customerInfo,
+        pizzaOrders,
+        pizzas,
+        PizzaCartReducer
+    }),
+    applyMiddleware(logger)
+)
+
+ReactDOM.render(<Provider store={storeInstance}> <App />  </Provider>, document.getElementById('root'));
