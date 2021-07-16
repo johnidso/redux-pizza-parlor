@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import './CustomerInfo.css';
 
 function CustomerInfo() {
 
