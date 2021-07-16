@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
-
+import './PizzaItem.css';
 
 function PizzaItem (props) {
     const dispatch=useDispatch();
@@ -20,7 +20,7 @@ function PizzaItem (props) {
     return(
         pizzaState ? (
             <section>
-                {/* Image here? */}
+                <img src={props.image_source} alt={props.name} />
                 <p>{props.name}</p>
                 <p>{props.description}</p>
                 <a>{props.price}</a>
@@ -28,7 +28,7 @@ function PizzaItem (props) {
             </section>
         ) : (
             <section>
-                {/* Image here? */}
+                <img src={props.image_source} alt={props.name} />
                 <p>{props.name}</p>
                 <p>{props.description}</p>
                 <a>{props.price}</a>
