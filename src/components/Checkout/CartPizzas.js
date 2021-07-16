@@ -1,8 +1,11 @@
 import PizzaItem from "./PizzaItem";
 
+import { useSelector } from 'react-redux';
 
-//This will get pizzas in he cart which should be stored in global state
 function CartPizzas() {
+
+    const cart = useSelector(store => store.PizzaCartReducer);
+
     return (
         <div>
             <table>
@@ -13,7 +16,10 @@ function CartPizzas() {
                     </tr>
                 </thead>
                 <tbody>
-                    <PizzaItem />
+                    {cart.map(pizza => (
+                        <PizzaItem pizza={pizza} key = {pizza.id}/>
+                    ))}
+                    
                 </tbody>
             </table>
         </div>

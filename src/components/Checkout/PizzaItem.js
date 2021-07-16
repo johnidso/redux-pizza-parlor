@@ -1,8 +1,10 @@
-function PizzaItem() {
+function PizzaItem(props) {
+    const pizza = props.pizza;
+    
     return (
         <tr>
-            <td>Pepperoni Stravaganza</td>
-            <td>$19.99</td>
+            <td>{pizza.id}</td>
+            <td>{pizza.name}</td>
         </tr>
     )
 }

@@ -4,7 +4,7 @@ import ClientData from './ClientData.js'
 import CartPizzas from './CartPizzas.js';
 
 function Checkout() {
-    const history = useHistory();
+    // const history = useHistory();
 
     // const handleClick = () => {
     // history.push('/');
