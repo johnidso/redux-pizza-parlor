@@ -68,10 +68,10 @@ function CustomerInfo() {
                 <input type="checkbox" />
                 <span class="checkmark"></span>
             </label> */}
-            <input type="radio" id="html" name="fav_language" value="HTML" />
-                <label for="html">HTML</label><br/>
-            <input type="radio" id="css" name="fav_language" value="CSS" />
-                <label for="css">CSS</label><br/>
+            <input type="radio" id="pickup" name="pickup_or_delivery" value="pickup" />
+                <label for="pickup">Pickup</label><br/>
+            <input type="radio" id="delivery" name="pickup_or_delivery" value="delivery" />
+                <label for="delivery">Delivery</label><br/>
             <button type="submit">Next</button>
         </form>
     </div>
