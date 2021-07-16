@@ -3,7 +3,7 @@ table{
     margin-right: auto;
     border: 1px solid black;
     border-spacing: 2px;
-    background-color: lightseagreen;
+   
     border-radius: 5px;
 }
 
@@ -12,11 +12,12 @@ th,tr{
     border-collapse: collapse;
     padding: 15px;
     border-radius: 2px;
+    background-color: lightslategrey;
 }
 
 td{
     border: 1px solid black;
     padding: 20px;
     border-radius: 2px;
-
+    background-color: lightseagreen;
 }
