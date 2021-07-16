@@ -94,3 +94,17 @@ function CustomerInfo() {
 }
 
 export default CustomerInfo;
+
+// Customer information reducer:
+
+// const customerInfo = (state = [], action) => {
+//     if (action.type === 'ADD_CUSTOMER_INFO') {
+//         // Create a new array
+//         // which includes all the values from our previous array
+//         // AND ALSO the new value in action.payload
+//         console.log(`The customer information added was ${action.payload}`);
+//         return [...state, action.payload];
+//     }
+
+//     return state;
+// };

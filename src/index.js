@@ -14,9 +14,21 @@ const totalReducer = (state=0, action) => {
     return state
 }
 
+// Customer information reducer:
+
+const customerInfo = (state = [], action) => {
+    if (action.type === 'ADD_CUSTOMER_INFO') {
+    // Create a new array which includes previous customer’s information (objects)
+         console.log(`The customer information added was ${action.payload}`);
+         return [...state, action.payload];
+     }
+     return state;
+ };
+
 let storeInstance= createStore(
     combineReducers({
         totalReducer,
+        customerInfo,
     }),
     applyMiddleware(logger)
 )
