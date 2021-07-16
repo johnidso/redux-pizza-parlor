@@ -1,6 +1,7 @@
 import {useSelector} from 'react-redux';
 import PizzaItem from '../PizzaItem/PizzaItem';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import './SelectPizza.css';
 
 
 function SelectPizza () {
@@ -18,7 +19,7 @@ function SelectPizza () {
                 return <PizzaItem key={pizza.id} name={pizza.name} description={pizza.description} price={pizza.price} image_path={pizza.image_path} pizza={pizza} />
             })}
             </section>
-            <button onClick={handleClick}>Next</button>
+            <button id='nextButton' onClick={handleClick}>Next</button>
         </>
     )
 }
