@@ -6,6 +6,13 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 
+const pizzaOrders = (state = [], action ) => {
+    if (action.type ==='GET_ORDER_LIST') {
+        return [...state, action.payload];
+    }
+    return state
+}
+
 const totalReducer = (state=0, action) => {
     if (action.type === "UPDATE_TOTAL"){
         state += Number(action.payload);
@@ -25,10 +32,20 @@ const customerInfo = (state = [], action) => {
      return state;
  };
 
+const pizzas = (state=[], action) => {
+    if (action.type === 'GET_PIZZAS'){
+        return action.payload;
+    }
+    return state;
+}
+
+
 let storeInstance= createStore(
     combineReducers({
         totalReducer,
         customerInfo,
+        pizzaOrders,
+        pizzas
     }),
     applyMiddleware(logger)
 )
