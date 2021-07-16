@@ -20,13 +20,13 @@ function PizzaItem (props) {
     return(
         pizzaState ? (
             <section className="pizzaCard">
-                {/* <img src={props.image_source} alt={props.name} /> */}
-                <p>{props.name}</p>
+                <img src={props.image_path} alt={props.name} />
                 <div className="pizzaInfo">
+                <p>{props.name}</p>
                     <p>{props.description}</p>
                     <a>{props.price}</a>
                 </div>
-                <div>
+                <div className="button">
                     <button onClick={handlePizzaAdd}>Add</button>
                 </div>
             </section>
