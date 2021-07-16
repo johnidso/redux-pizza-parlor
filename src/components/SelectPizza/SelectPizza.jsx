@@ -15,7 +15,7 @@ function SelectPizza () {
         <>
             <section id='pizzaList'>
             {pizzas.map( pizza => {
-                return <PizzaItem key={pizza.id} name={pizza.name} description={pizza.description} price={pizza.price} image_path={pizza.image_path} />
+                return <PizzaItem key={pizza.id} name={pizza.name} description={pizza.description} price={pizza.price} image_path={pizza.image_path} pizza={pizza} />
             })}
             </section>
             <button onClick={handleClick}>Next</button>

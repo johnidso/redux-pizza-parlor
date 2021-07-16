@@ -8,12 +8,13 @@ function PizzaItem (props) {
     const [pizzaState, setPizzaState] = useState(true)
     const handlePizzaAdd = event => {
         event.preventDefault();
-        dispatch({type:'', payload: props.id });
+        dispatch({type:'ADD_TO_CART', payload: props.pizza });
+        console.log(props.pizza);
         setPizzaState(!pizzaState);
     }
     const handlePizzaRemove = event => {
         event.preventDefault();
-        dispatch({type:'', payload: props.id});
+        dispatch({type:'REMOVE_PIZZA', payload: props.id});
         setPizzaState(!pizzaState);
     }
     return(
