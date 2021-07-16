@@ -1,7 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 function CustomerInfo() {
+
+    // Track the new customer info to add in our "local" state
+    const [newName, setNewName] = useState('');
+    const [newAddress, setNewAddress] = useState('');
+    const [newCity, setNewCity] = useState('');
+    const [newZip, setNewZip] = useState('');
+
+     // "dispatch" is how we talk to redux from react
+     const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         // Don't reload on form submit
@@ -22,6 +31,7 @@ function CustomerInfo() {
     };
     
     return (
+
     <div>
         <form onSubmit={handleSubmit}>
             <input 
@@ -48,6 +58,14 @@ function CustomerInfo() {
                 value={newZip}
                 onChange={event => setNewZip(event.target.value)}
             />
+            <label class="container">Pickup
+                <input type="checkbox" checked="checked" />
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Delivery
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+            </label>
             <button type="submit">Next</button>
         </form>
     </div>
