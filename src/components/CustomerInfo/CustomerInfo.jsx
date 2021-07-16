@@ -6,6 +6,20 @@ function CustomerInfo() {
     const handleSubmit = (event) => {
         // Don't reload on form submit
         event.preventDefault();
+
+        // Tell redux that we want to add new customer information
+        dispatch({
+            type: 'ADD_CUSTOMER_INFO',
+            // Pass in the customer information, that we're tracking in state
+            payload: {newName, newAddress, newCity, newZip}
+        });
+
+        // Clear the form field
+        setNewName('');
+        setNewAddress('');
+        setNewCity('');
+        setNewZip('');
+    };
     
     return (
     <div>
@@ -38,7 +52,6 @@ function CustomerInfo() {
         </form>
     </div>
     )
-
 }
 
 export default CustomerInfo;
