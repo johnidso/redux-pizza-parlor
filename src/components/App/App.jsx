@@ -32,7 +32,7 @@ function App() {
   const getOrders = () => {
     axios.get('/api/order')
     .then (response => {
-      dispatch ({type: 'GET_ORDER_LIST', payload: res.data})
+      dispatch ({type: 'GET_ORDER_LIST', payload: response.data})
     }) .catch (error =>{
       console.log('AXIOS get orders error', error);
     })
@@ -40,7 +40,7 @@ function App() {
 
   return (
     <Router>
-      <Route path='/'>
+      <Route path='/'exact>
         <Header />
         <SelectPizza />
       </Route>
