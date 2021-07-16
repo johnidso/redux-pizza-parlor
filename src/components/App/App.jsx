@@ -45,10 +45,10 @@ function App() {
         <SelectPizza />
       </Route>
       <Route path='/info'>
-
+        <CustomerInfo />
       </Route>
       <Route path='/checkout'>
-
+  
       </Route>
       <Route path='/admin'>
         
