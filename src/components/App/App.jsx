@@ -4,7 +4,11 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 import Header from "../Header/Header";
+
+import CustomerInfo from "../CustomerInfo/CustomerInfo";
+
 import SelectPizza from '../SelectPizza/SelectPizza';
+
 
 function App() {
   const dispatch = useDispatch();
