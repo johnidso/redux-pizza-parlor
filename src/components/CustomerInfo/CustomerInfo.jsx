@@ -9,6 +9,7 @@ function CustomerInfo() {
     const [newAddress, setNewAddress] = useState('');
     const [newCity, setNewCity] = useState('');
     const [newZip, setNewZip] = useState('');
+    const [pickup, setPickup] = useState(true);
 
      // "dispatch" is how we talk to redux from react
      const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function CustomerInfo() {
         dispatch({
             type: 'ADD_CUSTOMER_INFO',
             // Pass in the customer information, that we're tracking in state
-            payload: {newName, newAddress, newCity, newZip}
+            payload: {newName, newAddress, newCity, newZip, pickup}
         });
 
         // Clear the form field
@@ -29,6 +30,7 @@ function CustomerInfo() {
         setNewAddress('');
         setNewCity('');
         setNewZip('');
+        setPickup(true);
     };
     
     return (
@@ -68,9 +70,22 @@ function CustomerInfo() {
                 <input type="checkbox" />
                 <span class="checkmark"></span>
             </label> */}
-            <input type="radio" id="pickup" name="pickup_or_delivery" value="pickup" />
+            <input 
+                type="radio"
+                id="pickup" 
+                name="pickup_or_delivery"
+                checked="checked" 
+                value={pickup}
+                onChange={setPickup(true)}
+                />
                 <label for="pickup">Pickup</label><br/>
-            <input type="radio" id="delivery" name="pickup_or_delivery" value="delivery" />
+            <input 
+                type="radio" 
+                id="delivery" 
+                name="pickup_or_delivery" 
+                value={pickup} 
+                onChange={setPickup(false)}
+                />
                 <label for="delivery">Delivery</label><br/>
             <button type="submit">Next</button>
         </form>
