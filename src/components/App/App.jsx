@@ -20,7 +20,7 @@ function App() {
   }, [])
   //GET ORDERS REQUEST
   const getOrders = () => {
-    axios.get ('/api/order')
+    axios.get('/api/order')
     .then((response) =>{
       console.log('AXIOS GET ORDERS response:', response)
       dispatch({ type: `GET_ORDER_LIST`, payload: response.data });
