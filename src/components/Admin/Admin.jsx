@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import "./Admin.css";
+
 function Admin() {
     const pizzaOrders = useSelector(store => store.pizzaOrders);
     return(
