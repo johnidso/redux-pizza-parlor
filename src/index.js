@@ -20,15 +20,29 @@ const totalReducer = (state=0, action) => {
     }
     return state
 }
+const PizzaCartReducer = (state = [], action) => {
+    if(action.type === 'ADD_TO_CART'){
+        return [...state, action.payload];
+    }
+    if(action.type === 'CLEAR_CART'){
+        return state = [];
+    }
+    if(action.type === 'REMOVE_PIZZA'){
+        return state.filter(item => item != action.payload)
+    }
+    return state;
+};
 
 // Customer information reducer:
-
-const customerInfo = (state = [], action) => {
+const customerInfo = (state = {}, action) => {
     if (action.type === 'ADD_CUSTOMER_INFO') {
     // Create a new array which includes previous customer’s information (objects)
          console.log(`The customer information added was ${action.payload}`);
-         return [...state, action.payload];
+         return action.payload;
      }
+     if(action.type === 'CLEAR_CLIENT_DATA'){
+        return state = [];
+    }
      return state;
  };
 
@@ -39,13 +53,13 @@ const pizzas = (state=[], action) => {
     return state;
 }
 
-
 let storeInstance= createStore(
     combineReducers({
         totalReducer,
         customerInfo,
         pizzaOrders,
-        pizzas
+        pizzas,
+        PizzaCartReducer
     }),
     applyMiddleware(logger)
 )

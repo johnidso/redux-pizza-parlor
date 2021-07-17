@@ -7,7 +7,6 @@ import './SelectPizza.css';
 function SelectPizza () {
     const history = useHistory()
     const pizzas = useSelector(store => store.pizzas);
-    console.log(pizzas);
     const handleClick= () => {
         console.log('Routing to info page');
         history.push('/info');

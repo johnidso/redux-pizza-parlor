@@ -11,7 +11,7 @@ function CustomerInfo() {
     const [street_address, setStreet_Address] = useState('');
     const [city, setCity] = useState('');
     const [zip, setZip] = useState('');
-    const [type, setType] = useState(true);
+    const [type, setType] = useState('Pickup');
 
     // "dispatch" is how we talk to redux from react
     const dispatch = useDispatch();
@@ -20,7 +20,8 @@ function CustomerInfo() {
     const history = useHistory();
 
     const handleSubmit = (event) => {
-
+         // Don't reload on form submit
+         event.preventDefault();
         //lets add an if function to alert the user if the didnt fill something in
 
         if ( !customer_name || !street_address || !city || !zip) {
@@ -28,9 +29,6 @@ function CustomerInfo() {
         }
 
         else {
-
-            // Don't reload on form submit
-            event.preventDefault();
 
             // Tell redux that we want to add new customer information
             dispatch({
@@ -94,17 +92,17 @@ function CustomerInfo() {
                 name="pickup_or_delivery"
                 checked="checked" 
                 value={type}
-                onChange={setType(true)}
+                onClick={event => setType('Pickup')}
                 />
-                <label for="pickup">Pickup</label><br/>
+                <label htmlFor="pickup">Pickup</label><br/>
             <input 
                 type="radio" 
                 id="delivery" 
                 name="pickup_or_delivery" 
                 value={type} 
-                onChange={setType(false)}
+                onClick={event => setType('Delivery')}
                 />
-                <label for="delivery">Delivery</label><br/>
+                <label htmlFor="delivery">Delivery</label><br/>
             <button type="submit">Next</button>
         </form>
     </div>

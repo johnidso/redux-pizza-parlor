@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
+import Checkout from '../Checkout/Checkout';
 import Header from "../Header/Header";
 import Admin from "../Admin/Admin";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
@@ -39,21 +40,31 @@ function App() {
   }
 
   return (
+    <div className='App'>
     <Router>
+    <Header />
       <Route path='/'exact>
-        <Header />
+        <Link to="/pizzas">
+          <div>
+            <button >New order</button>
+          </div>
+        </Link>
+      </Route>
+      
+      <Route path='/pizzas'>
         <SelectPizza />
       </Route>
       <Route path='/info'>
         <CustomerInfo />
       </Route>
-      <Route path='/checkout'>
-        
-      </Route>
+        <Route path='/checkout' component={Checkout}/>
       <Route path='/admin'>
-        <Admin />
+        <Admin getOrders={getOrders}/>
       </Route>
+        <img src='images/pizza_photo.png' />
+        <p>Pizza is great.</p>
     </Router>
+    </div>
   );
 }
 
